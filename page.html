@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./extension.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+</head>
+
+<body>
+
+    <section class="settings-window">
+        <div class="close-window-wrapper"> <button class="close-settings">X</button></div>
+
+
+        <h3>Background </h3>
+
+        <form class="color-form">
+            <input type="radio" name="bgColor" value="darkGrid"> <label>Dark Grid</label>
+            <br>
+            <input type="radio" name="bgColor" value="lightGrid"> <label>Light Grid</label>
+            <br>
+            <input type="radio" name="bgColor" value="solid"> <label>Solid Color</label>
+            <input type="color" value="#2B2B2B" class="bg-color-in">
+
+        </form>
+
+        <h3>Font</h3>
+        <form class="font-form">
+            <label>Color</label>
+            <input type="color" class="font-color-in">
+            <br> <label> size</label>
+            <input type="number" min="0" max="40" value="16" class="font-size-in">
+            <span>px</span>
+
+        </form>
+        <h3>Notes Settings</h3>
+
+        <form class="notes-form">
+
+            <input type="checkbox" class="isShortCutEnabled" checked value="on">
+            <label> <span class="keyboard-key">Alt</span> +  <span class="keyboard-key">A</span> to add new note </label>
+        </form>
+        <br>
+        <label>Delete All notes including archived ones</label>
+        <button class="danger delete-all">Delete</button>
+    </section>
+    <aside>
+        <button class="collapse-sidemenu icon-circle-right"> </button>
+        <button class="settings-btn icon-gear"></button>
+        <button class="view-archive">Archive</button>
+        <button class="view-all-notes">All Notes</button>
+        <button class="add-note icon-plus"></button>
+    </aside>
+    <div class="notes-wrapper darkGrid ">
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

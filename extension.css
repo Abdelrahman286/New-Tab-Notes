@@ -1,0 +1,328 @@
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #323232;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #696969;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgb(69, 69, 69);
+}
+
+::-webkit-scrollbar-track-piece {
+  width: 8px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --grid-lines-dark: #282828;
+  --grid-background-dark: #1a1a1a;
+
+  --grid-lines-light: #e6e6e6;
+  --grid-background-light: #f1f1f1;
+}
+
+body {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  font-size: 18px;
+}
+
+button {
+  /* padding: 4px 10px; */
+}
+
+.note {
+  position: absolute;
+  min-width: 140px;
+  z-index: 1;
+}
+
+.note textarea {
+  width: 100%;
+  height: 100%;
+  /* background: #F3ECC3; */
+  border: none;
+  padding: 10px;
+  min-width: inherit;
+  color: inherit;
+  font-size: inherit;
+}
+
+.actions {
+  /* height: 30px; */
+  user-select: none;
+  display: flex;
+  justify-content: flex-end;
+  cursor: move;
+  /* background: #F8DD4E; */
+  position: relative;
+}
+
+.actions-btns {
+  /* background: red; */
+  height: 100%;
+  display: flex;
+  cursor: default;
+}
+
+.notes-wrapper {
+  /* background: rgb(69, 69, 69); */
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: scroll;
+  color: black;
+  /* background: rgb(68, 68, 68); */
+  font-size: 18px;
+}
+
+.darkGrid {
+  background: var(--grid-background-dark) !important;
+  background-image: linear-gradient(
+      var(--grid-lines-dark) 0.1em,
+      transparent 0.1em
+    ),
+    linear-gradient(90deg, var(--grid-lines-dark) 1px, transparent 0.1em) !important;
+  background-size: 10px 10px !important;
+}
+
+.lightGrid {
+  background: var(--grid-background-light) !important;
+  background-image: linear-gradient(
+      var(--grid-lines-light) 0.1em,
+      transparent 0.1em
+    ),
+    linear-gradient(90deg, var(--grid-lines-light) 1px, transparent 0.1em) !important;
+  background-size: 10px 10px !important;
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 5px;
+  transition: 0.3s ease-in-out;
+  /* background: red; */
+}
+
+.icon:hover {
+  background: #d3cccc;
+}
+
+.colors-list {
+  /* width: 160px; */
+  /* height: 20px; */
+  background: #ffeeee;
+  padding: 10px;
+  /* for colorsList */
+  position: absolute;
+  top: 46px;
+  right: 8px;
+  z-index: 100;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-option,
+.close-color-list {
+  margin: 0px 3px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.archive-toolip::after {
+  content: "Archive";
+  position: absolute;
+  top: 10px;
+  right: 146px;
+  padding: 4px;
+  color: white;
+  background: #272727;
+  font-size: 12px;
+  border-radius: 6px;
+  visibility: hidden;
+  transition-delay: 0s;
+}
+
+.archive-toolip:hover::after {
+  transition-delay: 0.8s;
+  visibility: visible;
+}
+
+/* unarchive toolip */
+
+.unarchive-toolip::after {
+  content: "Unarchive";
+  position: absolute;
+  top: 10px;
+  right: 146px;
+  padding: 4px;
+  color: white;
+  background: #272727;
+  font-size: 12px;
+  border-radius: 6px;
+  visibility: hidden;
+  transition-delay: 0s;
+}
+
+.unarchive-toolip:hover::after {
+  transition-delay: 0.8s;
+  visibility: visible;
+}
+
+aside {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  padding: 10px;
+  background: #eeeeee;
+  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow: hidden;
+  padding-left: 4px;
+}
+
+aside button {
+  border: none;
+  margin-left: 2px;
+  font-size: 14px;
+  color: #1d1d1d;
+}
+
+aside button:hover {
+  background: #d7d7d7;
+}
+
+aside .add-note {
+  background: rgb(202, 202, 202);
+  font-size: 20px;
+  border-radius: 50%;
+  width: 36px;
+  text-align: center;
+  height: 36px;
+}
+
+aside .settings-btn {
+  font-size: 20px;
+}
+
+.view-archive,
+.view-all-notes,
+.collapse-sidemenu,
+.settings-btn {
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.danger {
+  background: red;
+  padding: 4px 10px;
+  border-radius: 10px;
+  /* display: none; */
+}
+
+.settings-window {
+  box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.25);
+  background: #eeeeee;
+  position: absolute;
+  z-index: 30;
+  top: 80px;
+  right: 20px;
+  display: none;
+  /* width: 300px; */
+
+  font-size: 18px;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+input[type="color"] {
+  margin: -10px;
+}
+
+input[type="number"] {
+  margin: 15px 0px;
+}
+
+.settings-window label {
+  margin-right: 20px;
+  color: #2c2c2c;
+  /* padding: 10px 0px;
+    margin: 20px 20px;  */
+}
+
+.settings-window form {
+  /* background: red; */
+  padding: 10px 0px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #c0c0c0;
+  margin-bottom: 8px;
+}
+
+.settings-window h3 {
+  font-weight: bolder;
+}
+
+.close-window-wrapper {
+  float: right;
+}
+
+.close-window-wrapper button {
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  background: none;
+}
+
+.close-settings:hover {
+  background: #d3cccc;
+}
+
+.keyboard-key {
+  padding: 4px 8px;
+  background-color: #aeaeae;
+  border-radius: 6px;
+  font-size: 16px;
+}
