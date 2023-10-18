@@ -1,6 +1,6 @@
 {
   "name": "New Tab Notes",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Replace every new tab with your notes",
   "manifest_version": 3,
   "icons": {
