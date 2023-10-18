@@ -9,7 +9,6 @@ let shortcutEnabled = "on";
 async function intialStyleConfig() {
   const CONFIG = await getConfig();
 
-
   // handle shortcut
   if (CONFIG.shortcutEnabled) {
     isShortCutEnabled.checked = CONFIG.shortcutEnabled == "on" ? true : false;
@@ -64,21 +63,27 @@ const fetchAllNotes = async () => {
   notesContainer.innerHTML = "";
   const notes = await chrome.storage.local.get(null);
 
-  Object.entries(notes).forEach((ele) => {
-    if (ele[1].archived == "0") {
-      renderNotes(
-        ele[0],
-        ele[1].text,
-        ele[1].top,
-        ele[1].left,
-        ele[1].width,
-        ele[1].height,
-        ele[1].bg,
-        ele[1].hc,
-        ele[1].archived
-      );
-    }
-  });
+  // console.log(notesList);
+  Object.entries(notes)
+    .sort((a, b) => {
+      return a[1].date - b[1].date;
+    })
+    .forEach((ele) => {
+      if (ele[1].archived == "0") {
+        renderNotes(
+          ele[0],
+          ele[1].text,
+          ele[1].top,
+          ele[1].left,
+          ele[1].width,
+          ele[1].height,
+          ele[1].bg,
+          ele[1].hc,
+          ele[1].archived,
+          ele[1].date
+        );
+      }
+    });
 };
 
 const colors = [
@@ -90,11 +95,23 @@ const colors = [
   ["00B9E1", "0085A3"],
 ];
 
-function renderNotes(uuid, text, top, left, width, height, bg, hc, archived) {
+function renderNotes(
+  uuid,
+  text,
+  top,
+  left,
+  width,
+  height,
+  bg,
+  hc,
+  archived,
+  date
+) {
   // note parent
   const note = document.createElement("div");
 
   note.dataset.uuid = uuid;
+  note.dataset.date = date;
   note.dataset.width = width;
   note.dataset.height = height;
   note.dataset.bg = bg;
@@ -196,6 +213,7 @@ async function handleUnarchive(e) {
       top: ele.dataset.top,
       left: ele.dataset.left,
       archived: 0,
+      date: ele.dataset.date,
     },
   });
 
@@ -218,6 +236,7 @@ async function handleArchive(e) {
       top: el.dataset.top,
       left: el.dataset.left,
       archived: 1,
+      date: el.dataset.date,
     },
   });
 
@@ -256,6 +275,7 @@ async function toggleColorList(e) {
             top: E.dataset.top,
             left: E.dataset.left,
             archived: E.dataset.archived,
+            date: E.dataset.date,
           },
         });
 
@@ -299,6 +319,7 @@ async function updateTextAreaContent(el, text) {
       top: el.dataset.top,
       left: el.dataset.left,
       archived: el.dataset.archived,
+      date: el.dataset.date,
     },
   });
 }
@@ -319,6 +340,7 @@ async function updateTextAreaSize(el, width, height) {
       archived: N.dataset.archived,
       width: width,
       height: height,
+      date: N.dataset.date,
     },
   });
 }
@@ -377,6 +399,7 @@ const drag = async (e) => {
         width: dragTarget.dataset.width,
         height: dragTarget.dataset.height,
         archived: dragTarget.dataset.archived,
+        date: dragTarget.dataset.date,
       },
     });
   }
@@ -391,6 +414,7 @@ function randomIntFromInterval(min, max) {
 }
 const createNote = async () => {
   const uuid = crypto.randomUUID();
+  const date = Date.now();
 
   await chrome.storage.local.set({
     [uuid]: {
@@ -402,6 +426,7 @@ const createNote = async () => {
       height: "300px",
       bg: "#F3ECC3",
       hc: "#F8DD4E",
+      date: date,
     },
   });
 
@@ -424,21 +449,26 @@ async function viewArchivedNotes() {
   notesContainer.innerHTML = "";
   const notes = await chrome.storage.local.get(null);
 
-  Object.entries(notes).forEach((ele) => {
-    if (ele[1].archived == "1") {
-      renderNotes(
-        ele[0],
-        ele[1].text,
-        ele[1].top,
-        ele[1].left,
-        ele[1].width,
-        ele[1].height,
-        ele[1].bg,
-        ele[1].hc,
-        ele[1].archived
-      );
-    }
-  });
+  Object.entries(notes)
+    .sort((a, b) => {
+      return a[1].date - b[1].date;
+    })
+    .forEach((ele) => {
+      if (ele[1].archived == "1") {
+        renderNotes(
+          ele[0],
+          ele[1].text,
+          ele[1].top,
+          ele[1].left,
+          ele[1].width,
+          ele[1].height,
+          ele[1].bg,
+          ele[1].hc,
+          ele[1].archived,
+          ele[1].date
+        );
+      }
+    });
 }
 viewArchiveBtn.addEventListener("click", viewArchivedNotes);
 
@@ -543,7 +573,6 @@ const fontForm = document.querySelector(".font-form");
 async function handleFontSettings(e) {
   // real time change
   if (e.target.classList.contains("font-color-in")) {
-
     notesContainer.style.color = e.target.value;
     await chrome.storage.sync.set({
       fontColor: e.target.value,
