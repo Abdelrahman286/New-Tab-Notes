@@ -1,7 +1,7 @@
 {
   "name": "New Tab Notes",
   "version": "1.0.1",
-  "description": "Replace every new tab with your notes",
+  "description": "Replace Chrome new tab with your notes",
   "manifest_version": 3,
   "icons": {
     "16": "./icons/icon16.png",
@@ -19,7 +19,6 @@
   },
 
   "permissions": ["storage"],
-  "host_permissions": ["<all_urls>"],
   "chrome_url_overrides": {
     "newtab": "page.html"
   }
