@@ -27,6 +27,7 @@ const colors = [
   ["76BBEC", "2872CD"],
   ["FF886E", "FF2E00"],
   ["00B9E1", "0085A3"],
+  ["864AF9", "600DFF"],
 ];
 
 // functions

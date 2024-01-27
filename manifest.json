@@ -1,6 +1,6 @@
 {
   "name": "New Tab Notes - Sticky Notes",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Replace Chrome new tab with your notes",
   "manifest_version": 3,
   "icons": {
