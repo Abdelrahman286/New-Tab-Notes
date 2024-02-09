@@ -542,3 +542,4 @@ document.addEventListener("mouseup", () => {
 // intial calls
 intialStyleConfig();
 fetchAllNotes();
+

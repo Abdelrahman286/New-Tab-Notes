@@ -1,6 +1,6 @@
 {
   "name": "New Tab Notes - Sticky Notes",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Replace Chrome new tab with your notes",
   "manifest_version": 3,
   "icons": {
@@ -10,6 +10,7 @@
     "128": "./icons/icon128.png"
   },
   "action": {
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "./icons/icon16.png",
       "32": "./icons/icon48.png",
@@ -18,8 +19,9 @@
     }
   },
 
-  "permissions": ["storage"],
-  "chrome_url_overrides": {
-    "newtab": "page.html"
+  "permissions": ["storage", "tabs"],
+
+  "background": {
+    "service_worker": "background.js"
   }
 }
