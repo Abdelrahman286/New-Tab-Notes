@@ -10,7 +10,6 @@
     "128": "./icons/icon128.png"
   },
   "action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "16": "./icons/icon16.png",
       "32": "./icons/icon48.png",
@@ -19,9 +18,8 @@
     }
   },
 
-  "permissions": ["storage", "tabs"],
-
-  "background": {
-    "service_worker": "background.js"
+  "permissions": ["storage"],
+  "chrome_url_overrides": {
+    "newtab": "page.html"
   }
 }

@@ -21,7 +21,12 @@ let dragTarget;
 
 // colors
 const colors = [
+  ["FFFFFF", "C7C7C7"],
   ["F3ECC3", "F8DD4E"],
+  ["FFB7CE", "FF729F"],
+
+  ["FFB569", "FF8100"],
+
   ["DE86E6", "EB0BFF"],
   ["7FF3AE", "00FF66"],
   ["76BBEC", "2872CD"],
@@ -542,4 +547,3 @@ document.addEventListener("mouseup", () => {
 // intial calls
 intialStyleConfig();
 fetchAllNotes();
-
