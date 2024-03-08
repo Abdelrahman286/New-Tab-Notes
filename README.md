@@ -38,9 +38,6 @@ Customize the colors of your Sticky Notes by clicking on the color palette icon.
 
 If you encounter any issues or have suggestions for improvement, feel free to [open an issue](https://github.com/your-username/sticky-notes-chrome-extension/issues). We appreciate your feedback!
 
-## License
-
-This project is licensed under the [MIT License](LICENSE.md).
 
 ---
 
