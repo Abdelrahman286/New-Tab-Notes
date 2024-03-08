@@ -1,6 +1,10 @@
 # New Tab Notes - Sticky Notes app for Chrome
+
 ![alt text](screenshot-1.png)
 Replace your new tab page with a minimalistic Sticky Notes board using this Chrome extension. Keep your important notes in front of you every time you open a new tab.
+
+
+[Store Link](https://chromewebstore.google.com/detail/new-tab-notes-sticky-note/fikoeimhmcejdnhpahkljhjcijfdfaja)
 
 ## Features
 
@@ -37,7 +41,6 @@ Customize the colors of your Sticky Notes by clicking on the color palette icon.
 ## Feedback
 
 If you encounter any issues or have suggestions for improvement, feel free to [open an issue](https://github.com/your-username/sticky-notes-chrome-extension/issues). We appreciate your feedback!
-
 
 ---
 
