@@ -1,6 +1,6 @@
 {
-  "name": "New Tab Notes - Sticky Notes",
-  "version": "1.0.5",
+  "name": "MemoTab : New Tab Sticky Notes",
+  "version": "1.0.6",
   "description": "Replace Chrome new tab with your notes",
   "manifest_version": 3,
   "icons": {
@@ -15,11 +15,16 @@
       "32": "./icons/icon48.png",
       "48": "./icons/icon48.png",
       "128": "./icons/icon128.png"
-    }
+    },
+    "default_popup": "popup.html"
   },
 
-  "permissions": ["storage"],
+  "permissions": ["storage", "unlimitedStorage"],
   "chrome_url_overrides": {
     "newtab": "page.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
   }
 }

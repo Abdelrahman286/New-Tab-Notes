@@ -1,6 +1,7 @@
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 /* Track */
@@ -23,7 +24,6 @@
 ::-webkit-scrollbar-corner {
   /* background: rgb(69, 69, 69); */
   background: transparent;
-
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -31,10 +31,9 @@
 }
 
 * {
-
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   font-weight: 400;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -55,10 +54,6 @@ body {
   font-size: 18px;
 }
 
-button {
-  /* padding: 4px 10px; */
-}
-
 .note {
   position: absolute;
   min-width: 140px;
@@ -77,13 +72,12 @@ button {
 }
 
 .actions {
-  /* height: 30px; */
   user-select: none;
   display: flex;
   justify-content: flex-end;
   cursor: move;
-  /* background: #F8DD4E; */
   position: relative;
+  height: 26px;
 }
 
 .actions-btns {
@@ -125,18 +119,15 @@ button {
 }
 
 .icon {
-  font-size: 20px;
+  font-size: 16px;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
   border-radius: 50%;
-  padding: 10px;
+  padding: 0px 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0px 5px;
   transition: 0.3s ease-in-out;
-  /* background: red; */
 }
 
 .icon:hover {
@@ -150,7 +141,7 @@ button {
   padding: 10px;
   /* for colorsList */
   position: absolute;
-  top: 46px;
+  top: 36px;
   right: 8px;
   z-index: 100;
   border-radius: 20px;
@@ -170,8 +161,8 @@ button {
 .archive-toolip::after {
   content: "Archive";
   position: absolute;
-  top: 10px;
-  right: 146px;
+  top: 4px;
+  right: 104px;
   padding: 4px;
   color: white;
   background: #272727;
@@ -301,7 +292,7 @@ input[type="number"] {
   /* background: red; */
   padding: 10px 0px;
   padding-bottom: 15px;
-  border-bottom: 1px solid #c0c0c0;
+  /* border-bottom: 1px solid #c0c0c0; */
   margin-bottom: 8px;
 }
 

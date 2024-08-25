@@ -1,5 +1,5 @@
 const notesContainer = document.querySelector(".notes-wrapper");
-const deleteAllBtn = document.querySelector(".delete-all");
+// const deleteAllBtn = document.querySelector(".delete-all");
 const addBtn = document.querySelector(".add-note");
 const viewArchiveBtn = document.querySelector(".view-archive");
 const viewAllNotesBtn = document.querySelector(".view-all-notes");
@@ -476,7 +476,8 @@ async function handleFontSettings(e) {
 
 // event listeners
 
-deleteAllBtn.addEventListener("click", deleteAllNotes);
+// deleteAllBtn.addEventListener("click", deleteAllNotes);
+
 fontForm.addEventListener("change", handleFontSettings);
 colorFrom.addEventListener("change", handleBgConfig);
 isShortCutEnabled.addEventListener("change", handleNotesSettings);
